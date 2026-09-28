@@ -20,15 +20,21 @@ jobs:
     steps:
       - name: Checkout your repository
         uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'bun'
 
-      - name: Install, lint, build
-        uses: withastro/action@v3
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install and Build with Bun
+        run: |
+          bun install --frozen-lockfile
+          bun run build
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
 
   deploy:
     environment:
