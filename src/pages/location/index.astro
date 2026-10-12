@@ -1,0 +1,52 @@
+---
+import UnderConstruction from '../../components/UnderConstruction.astro';
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout webptitle="BayPhon2026 @ SJSU: Location" >
+    <h2>
+        Location
+    </h2>
+    <p>BayPhon will be taking place at Clark Hall [Location TBD]. </p>
+	<div id="map"></div>
+
+    <p>
+        [Parking Information]
+    </p>
+    <p>
+        [Public Transport Information]
+    </p>
+    <UnderConstruction />
+</Layout>
+
+<style>
+#map {
+    width: min(80vw, 50vh);
+    aspect-ratio: 1;
+}
+</style>
+
+<script>
+import { Map, setWorkerUrl, Popup, Marker, type LngLatLike } from 'maplibre-gl'
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
+import 'maplibre-gl/dist/maplibre-gl.css'
+
+setWorkerUrl(workerUrl)
+
+const clarkHallCoords: LngLatLike = [-121.8825582109531, 37.33593623349783];
+
+const map = new Map({
+  container: 'map',
+  style: 'https://tiles.openfreemap.org/styles/liberty',
+  center: clarkHallCoords,
+  zoom: 16,
+})
+const popup = new Popup({ offset: 25 })
+    .setText('Clark Hall');
+
+new Marker({ color: '#FF0000' })
+    .setLngLat(clarkHallCoords)
+    .setPopup(popup)
+    .addTo(map);
+
+</script>
