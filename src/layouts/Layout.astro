@@ -1,23 +1,65 @@
+---
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import Title from "../components/Title.astro";
+
+const { webptitle } = Astro.props;
+
+interface Props {
+	webptitle: string;
+}
+
+---
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{ webptitle }</title>
 	</head>
 	<body>
-		<slot />
+		<Title />
+		<Nav />
+		<main>
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
 
-<style>
+<style is:global>
 	html,
 	body {
+		--rgb-bg: #ffffff;
+		--rgb-text: #0b0010;
+		--rgb-blue: #0055A2;
+		--rgb-a: var(--rgb-blue);
+		--rgb-gold: #E5A823;
+		--rgb-gray: #939597;
+
+		font-family: NunitoSans;
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		color: var(--rgb-text);
+		background-color: var(--rgb-bg);
+	}
+	a {
+		all: unset;
+		color: var(--rgb-a);
+		transition: ease-in-out 0.25s;
+		cursor: pointer;
+        &:hover {
+            transform: scale(1.1);
+        }
+	}
+	@font-face {
+		font-family: NunitoSans;
+		src: url('/src/assets/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf');
+	}
+	main {
+		min-height: calc(100vh - 11rem);
 	}
 </style>
