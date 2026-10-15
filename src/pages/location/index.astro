@@ -7,14 +7,34 @@ import Layout from '../../layouts/Layout.astro';
     <h2>
         Location
     </h2>
-    <p>BayPhon will be taking place at Clark Hall [Location TBD]. </p>
+    <p>The workshop will take place in SJSU's Engineering Building, Room 285/7. <br/>
+        <a href="https://maps.app.goo.gl/Hvp8cJA4bKrZMHDW8">Charles W. Davidson College of Engineering <br/>
+        One Washington Square<br/>
+        San José California, USA, 95192-0080<br/> </a></p>
 	<div id="map"></div>
-
+    <h3>Driving & Campus Parking</h3>
     <p>
-        [Parking Information]
+        Parking is $12 / day. (Parking validation pending) The following are parking garages available to the public: <br/><br/>
+        <b>North Parking Garage:</b> <br/>
+        <a href="https://maps.app.goo.gl/F9xEiZ5y7S61nzsD7">65 S. 10th St., San Jose, CA 95112</a> <br/><br/>
+        <b>South Parking Garage:</b> <br/>
+        <a href="https://maps.app.goo.gl/WxrPnQbqWHfXNfJ69">377 S. 7th St., San Jose, CA 95112</a> 
     </p>
+    <h3>Getting to SJSU by Public Transit</h3>
     <p>
-        [Public Transport Information]
+        <b>From Berkeley/Oakland/Davis:</b>
+        <br>
+        The Capital Corridor train drops off at Diridon Station, where you can easily catch a bus to campus (~10 min ride on VTA Rapid 500, 64A, 64B, or 68 to San Jose City Hall/6th & Santa Clara). Bus fare is $2.50, or $1 for students. Clipper cards are accepted on the bus. 
+        <br><br>
+        You can also take BART to Barryessa/Milpitas, and hop on the VTA Rapid 500, getting off at San Jose City Hall/5th & Santa Clara.
+        <br><br>
+        <b>From San Francisco/Palo Alto:</b>
+        <br>
+        Caltrain drops off at Diridon Station, where you can easily catch a bus to campus (~10 min ride on VTA Rapid 500, 64A, 64B, or 68 to San Jose City Hall/6th & Santa Clara). Bus fare is $2.50, or $1 for students. Clipper cards are accepted on the bus.
+        <br><br>
+        <b>From Santa Cruz:</b>
+        <br>
+        The Highway 17 Bus from Santa Cruz or Scotts Valley drops off at Diridon Station ($7 / ride), where you can easily catch a bus to campus (~10 min ride on VTA Rapid 500, 64A, 64B, or 68 to San Jose City Hall/6th & Santa Clara). Bus fare is $2.50, or $1 for students. Clipper cards are accepted on the bus.
     </p>
     <UnderConstruction />
 </Layout>
@@ -33,19 +53,20 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 
 setWorkerUrl(workerUrl)
 
-const clarkHallCoords: LngLatLike = [-121.8825582109531, 37.33593623349783];
+const coords: LngLatLike = [-121.88110548176286, 37.336944296539976];
+ 
 
 const map = new Map({
   container: 'map',
   style: 'https://tiles.openfreemap.org/styles/liberty',
-  center: clarkHallCoords,
+  center: coords,
   zoom: 16,
 })
 const popup = new Popup({ offset: 25 })
-    .setText('Clark Hall');
+    .setText('College of Engineering');
 
 new Marker({ color: '#FF0000' })
-    .setLngLat(clarkHallCoords)
+    .setLngLat(coords)
     .setPopup(popup)
     .addTo(map);
 
