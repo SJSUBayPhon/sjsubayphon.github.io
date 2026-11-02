@@ -1,11 +1,13 @@
 ---
-import UnderConstruction from '../components/UnderConstruction.astro';
 import Layout from '../layouts/Layout.astro';
+import imgSJSUBayPhon from "../assets/img/2026-sjsu-bayphon.png"
 ---
 
 <Layout webptitle="BayPhon2026 @ SJSU: Home" >
 	<h2>BayPhon 2026 @ San José State University</h2>
-	
+	<div class="centering-wrapper">
+		<img class="sjsu-bayphon" src={imgSJSUBayPhon.src} alt="bayphon logo">
+	</div>
 	<p>
 		BayPhon 2026 will take place on <strong>December 5th, 2026</strong> at San José State University.
 	</p>
@@ -13,6 +15,15 @@ import Layout from '../layouts/Layout.astro';
 		BayPhon carries on the tradition of <strong>PHREND</strong> (<strong>Ph</strong>onetics and Phonology <strong>R</strong>esearch Week<strong>END</strong>), bringing together linguistics departments from across the broader Bay Area (San José State, Stanford, UC Berkeley, UC Santa Cruz, UC Davis, San Francisco State). The workshop provides the opportunity for students and faculty to showcase their work, stay in touch about research, and build collaborative partnerships across the universities. 
 	</p>
 
-	<UnderConstruction />
 </Layout>
+<style>
+	div.centering-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	img.sjsu-bayphon {
+		width: max(20rem, 40vw);
+	}
+</style>
 

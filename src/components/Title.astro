@@ -1,5 +1,5 @@
 ---
-import imgSJSULogo from '../assets/img/sjsu-logo.svg';
+import imgSJSULogo from '../assets/img/sjsu-wug-logo.png';
 ---
 <div class="title">
     <img class="inline-logo" src={imgSJSULogo.src} alt="SJSU logo">
@@ -11,13 +11,14 @@ import imgSJSULogo from '../assets/img/sjsu-logo.svg';
 <style>
 div.title {
     display: flex;
+    align-items: center;
     background-color: var(--rgb-blue);
     color: var(--rgb-bg);
     padding: 0rem 2rem;
     gap: 1rem;
     & > .inline-logo {
-        aspect-ratio: 1;
         width: 3rem;
+        aspect-ratio: 1;
     }
 }
 </style>
