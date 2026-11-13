@@ -1,17 +1,25 @@
 ---
 import UnderConstruction from '../../components/UnderConstruction.astro';
 import Layout from '../../layouts/Layout.astro';
+import Program from '../../assets/bayphon2026_program.pdf'
 import StatueImg from '../../assets/img/hr-olympic-black-power.jpg'
 ---
 
 <Layout webptitle="BayPhon2026 @ SJSU: Program" >
     <h2>Program</h2>
 	<p>
-		Program information coming soon!
+        If you haven't already, please sign up at <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVycQgredZZ5Mm7XmWrQV4ABSCaKyAtGqBb-tZnCRD0YdaDw/viewform" target="_blank">this link</a> so we can calculate attendance and headcount!
 	</p>
+
+    <embed src={Program} width="500" height="375" type="application/pdf">
+    
+        <!--
     <img class="salute-statue" src={StatueImg.src} alt="victory salute statue">
     <div class="caption">Victory Salute, Photographer: Hunter Ridenour (2022)</div>
-	<UnderConstruction />
+	    -->
+    <p>
+        <a href={Program} target="_blank">Open in a new tab</a>
+    </p>
 </Layout>
 <style>
     img.salute-statue {
@@ -19,5 +27,8 @@ import StatueImg from '../../assets/img/hr-olympic-black-power.jpg'
     }
     div.caption {
         font-size: 0.6rem;
+    }
+    embed {
+        width: 100%;
     }
 </style>
